@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Registrate</button>
+      <button mat-menu-item>Tu mama</button>
+</mat-menu>
+    <span>Subite</span>
+    <span class="example-spacer"></span>
+    <img src="./assets/logo-blanco.png" height="100%"> 
+  </mat-toolbar>
+  <div class="fondo">
+<router-outlet></router-outlet>
+</div>

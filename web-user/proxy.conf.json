@@ -1,0 +1,10 @@
+{
+    "/wbs/api": {
+      "target": "https://trapelsic.azurewebsites.net",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/wbs/api": ""
+      }
+    }
+  }

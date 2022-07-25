@@ -1,0 +1,19 @@
+.example-input-wrapper {
+    margin-bottom: 16px;
+  }
+  
+  label {
+    margin-right: 4px;
+  }
+
+  .main-div{
+    height:100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchcontainer {
+    text-align:center;
+    width: 100%;
+ }

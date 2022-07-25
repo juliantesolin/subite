@@ -1,0 +1,30 @@
+
+<div class="main-div">
+<mat-card class="searchcontainer">
+  <div class="searchcontainer">
+    <mat-card-header class="search-part">
+        <mat-card-title>LogIn</mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+
+    <div class="search-part">
+    <mat-form-field appearance="fill">
+      <mat-label>Ingresa tu mail</mat-label>
+      <input matInput placeholder="tu@mail.com" [formControl]="email" required [(ngModel)]="usuario">
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Ingresa tu contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="pass">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+  </div>
+    <button mat-flat-button color="primary" id="loginButton" (click)="loginButtonOnClick()">Iniciar sesion</button>
+</mat-card-content>
+<a routerLink='/register' >Registrate lince</a>
+</div>
+</mat-card>
+</div>

@@ -1,0 +1,38 @@
+<div class="main-div">
+  
+  <mat-horizontal-stepper [linear]="false" #stepper class="searchcontainer">
+    <mat-step [stepControl]="mailFormGroup">
+      <form [formGroup]="mailFormGroup">
+        <ng-template matStepLabel>Email</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Ingresa tu mail" formControlName="mailCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="passFormGroup">
+      <form [formGroup]="passFormGroup">
+        <ng-template matStepLabel>Contraseña</ng-template>
+        <mat-form-field>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="passCtrl">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Listo</ng-template>
+      Te va a llegar un correo para validar tu cuenta.
+      <div>
+        <button mat-button (click)="stepper.reset()" >Listo</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
