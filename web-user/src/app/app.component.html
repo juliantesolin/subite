@@ -3,10 +3,9 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Registrate</button>
-      <button mat-menu-item>Tu mama</button>
+      <button mat-menu-item (click)="registerClick()">Registrate</button>
 </mat-menu>
-    <span>Subite</span>
+    <span (click)="homeClick()">BondiPago</span>
     <span class="example-spacer"></span>
     <img src="./assets/logo-blanco.png" height="100%"> 
   </mat-toolbar>

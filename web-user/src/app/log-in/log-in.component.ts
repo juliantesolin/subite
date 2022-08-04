@@ -17,6 +17,7 @@ export class LogInComponent implements OnInit {
 
   usuario!: string;
   pass!: string;
+  loading = false;
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -34,13 +35,20 @@ export class LogInComponent implements OnInit {
   }
 
   loginButtonOnClick(){
+    this.loading = true
+
     this.loginService.loginUser(new LoginRequest(this.usuario, this.pass)).subscribe(
       data => {      
         console.log('Te logueaste con el usuario '+ data.usr_data.name)
+        this.loading = false
         this.router.navigate(['home'])},
       error => {
+        this.loading = false
         this.dialog.open(PopUpComponent, {
-          width: '350px'
+          width: '350px',
+          data: {
+            dataKey: 'Los datos de ingreso no son correctos. Revisa tus credenciales e intenta nuevamente.'
+          }
         });
       }
       )

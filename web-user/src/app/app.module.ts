@@ -22,6 +22,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { RegisterComponent } from './register/register.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDividerModule,
     MatMenuModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
+    MatProgressSpinnerModule
   ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}, LoginService],
   bootstrap: [AppComponent]

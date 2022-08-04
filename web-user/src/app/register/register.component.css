@@ -17,3 +17,15 @@
     text-align:center;
     width: 100%;
  }
+
+ .container {
+  text-align:center;
+  width:40em;
+  height:18em;
+}
+
+ .field {
+  text-align:center;
+  width: 48%;
+  margin: 1%;
+}

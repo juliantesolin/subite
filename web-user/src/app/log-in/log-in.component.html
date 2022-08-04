@@ -22,9 +22,10 @@
         </button>
     </mat-form-field>
   </div>
-    <button mat-flat-button color="primary" id="loginButton" (click)="loginButtonOnClick()">Iniciar sesion</button>
+    <button mat-flat-button color="primary" id="loginButton" (click)="loginButtonOnClick()" [disabled]="loading">Iniciar sesion</button>
 </mat-card-content>
-<a routerLink='/register' >Registrate lince</a>
+<a routerLink='/register' [hidden]="loading">Registrate</a>
 </div>
 </mat-card>
+<mat-spinner *ngIf="loading" class="loader"></mat-spinner>
 </div>

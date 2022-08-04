@@ -10,6 +10,14 @@
     width: 100%;
  }
 
+ .loader {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
  .searchcontainer .search-part {
     display: grid;
     flex-direction: row;
