@@ -41,6 +41,7 @@ export class LogInComponent implements OnInit {
       data => {      
         console.log('Te logueaste con el usuario '+ data.usr_data.name)
         this.loading = false
+        localStorage.setItem('token', data.token);
         this.router.navigate(['home'])},
       error => {
         this.loading = false

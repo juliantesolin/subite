@@ -23,6 +23,9 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 import { RegisterComponent } from './register/register.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SaldosComponent } from './saldos/saldos.component';
+import { MovimientosComponent } from './movimientos/movimientos.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     HomeComponent,
     VerifyEmailComponent,
     PopUpComponent,
-    RegisterComponent
+    RegisterComponent,
+    SaldosComponent,
+    MovimientosComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatMenuModule,
     MatDialogModule,
     MatStepperModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}, LoginService],
   bootstrap: [AppComponent]

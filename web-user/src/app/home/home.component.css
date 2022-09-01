@@ -23,3 +23,21 @@
   width: 25vh;
   margin-bottom:2%;
 }
+
+.fondo1{
+  background-image: url(../../assets/pago-validador.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50em;
+  height: 25em;
+}
+
+.fondo2{
+  background-image: url(../../assets/bondi-adentro1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50em;
+  height: 25em;
+}

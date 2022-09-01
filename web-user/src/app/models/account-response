@@ -1,0 +1,12 @@
+export class AccountInfoResponse {
+
+    transactions!: string;
+    usr_id!: string;
+    currency!: string;
+    amount!: number;
+
+    constructor(
+        ) {
+
+    }
+}

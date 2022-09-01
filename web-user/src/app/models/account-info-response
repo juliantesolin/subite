@@ -1,0 +1,14 @@
+export class AccountInfoResponse {
+
+    account!: AccountInfoResponse;
+    logged!: number;
+    url_map!: string;
+    url_recharge!: string;
+    url_transfer!: string;
+    url_help!: string;
+
+    constructor(
+        ) {
+
+    }
+}

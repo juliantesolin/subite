@@ -1,0 +1,15 @@
+.main-div{
+    height:100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .table {
+    width: 60em;
+  }
+
+  .column {
+    padding-left: 16px;
+    font-size: 25px;
+  }
