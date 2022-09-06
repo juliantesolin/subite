@@ -1,2 +1,13 @@
 <div class="main-div">
+    <mat-card class="searchcontainer">
+        <div class="searchcontainer">
+            <mat-card-header class="search-part">
+                <mat-card-title>Tu Saldo</mat-card-title>
+            </mat-card-header>
+            <mat-card-header class="search-part">
+                <mat-card-title>{{account.account.currency}} {{account.account.amount}}</mat-card-title>
+            </mat-card-header>
+        </div>
+        <button mat-flat-button color="primary" id="loginButton" (click)="recargaButtonOnClick()" [disabled]="loading">Recargar Saldo</button>
+    </mat-card>
 </div>

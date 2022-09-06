@@ -11,5 +11,18 @@
 
   .column {
     padding-left: 16px;
-    font-size: 25px;
+    font-size: 14px;
+    width: 8em;
+    text-align: center;
   }
+
+  .searchcontainer {
+    text-align:center;
+ }
+
+ .searchcontainer .search-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
