@@ -12,7 +12,8 @@ export class AppComponent {
   constructor(private router:Router) {}
 
   registerClick(){
-    this.router.navigate(['register'], {  });
+    localStorage.removeItem('token')
+    this.router.navigate(['login'], {  });
   }
 
   homeClick(){

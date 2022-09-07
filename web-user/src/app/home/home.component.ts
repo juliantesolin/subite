@@ -20,4 +20,8 @@ export class HomeComponent implements OnInit {
   saldosClick(){
     this.router.navigate(['saldos'], {  });
   }
+
+  roboClick(){
+    
+  }
 }
