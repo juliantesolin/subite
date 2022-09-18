@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
 import { MovimientosComponent } from './movimientos/movimientos.component';
 import { RegisterComponent } from './register/register.component';
 import { SaldosComponent } from './saldos/saldos.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'saldos', component: SaldosComponent },
   { path: 'movimientos', component: MovimientosComponent },
+  { path: 'mercadoPago', component: MercadoPagoComponent },
   { path: '**', redirectTo: '/login' },
 ];
 

@@ -1,14 +1,62 @@
-<mat-toolbar color="primary">
+<header>
+  <nav class="navbar navbar-top navbar-default bg-header">
+    <div class="container">
+        <div class="navbar-header">
+          <span (click)="homeClick()" aria-label="Argentina.gob.ar Presidencia de la Nación">
+            <img height="69" src="./assets/logo_bondipago.png"/>
+          </span>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+          <button class="btn btn-logout" (click)="registerClick()">
+            <i class="bi bi-arrow-right-square"></i>&NonBreakingSpace;Logout
+          </button>
+        </div>
+    </div>
+  </nav>
+</header>
+<!-- <mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="registerClick()">Logout</button>
-</mat-menu>
-    <span (click)="homeClick()">BondiPago</span>
+    </mat-menu>
+    <span (click)="homeClick()"><img height="69" src="./assets/logo_bondipago.png"/></span>
     <span class="example-spacer"></span>
-    <!-- <img src="./assets/logo-blanco.png" height="100%"> -->
-  </mat-toolbar>
-  <div class="fondo">
-<router-outlet></router-outlet>
+</mat-toolbar> -->
+
+
+<div class="fondo">
+  <router-outlet></router-outlet>
 </div>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="region region-footer1">
+          <section id="block-menu-menu-footer-1" class="block block-menu clearfix">
+            <h2 class="h3">Acerca de BondiPago</h2>
+            <ul class="list-group">
+              <li><a href="/terminos-y-condiciones">Términos y condiciones</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="region region-footer2">
+          <section id="block-menu-menu-footer-3" class="block block-menu clearfix">
+             <h2 class="h3">Acerca de Trapelsic</h2>
+                <ul class="list-group">
+                  <li><a href="/acerca">Acerca de este sitio</a></li>
+                  <li><a href="/sugerencias">Sugerencias</a></li>
+                </ul>
+           </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+

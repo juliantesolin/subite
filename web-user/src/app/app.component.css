@@ -1,10 +1,45 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 
-  .fondo{
-    background-image: url(../assets/fondo.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.fondo{
+  background-image: url(../assets/fondo.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-header {
+  background-color: #424242 !important;
+}
+
+.btn:first-child:hover, :not(.btn-check)+.btn:hover {
+  color: #424242;
+  background-color: #00FF97;
+}
+
+.btn-logout {
+  color: #fff;
+  border-color: #00FF97;
+}
+
+.main-footer {
+  padding: 50px 0 0 0;
+  margin-top: 0 !important;
+  color: #fff;
+  background: #424242 !important;
+}
+.main-footer {
+  background: #424242;
+  padding-bottom: 32px;
+  padding-top: 10px !important;
+  border-top: solid 1px #ddd;
+}
+
+.main-footer li a {
+  display: block;
+  font-size: 16px;
+  padding: 6px 0;
+  text-decoration: none !important;
+  color: #fff;
 }

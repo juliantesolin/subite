@@ -26,6 +26,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SaldosComponent } from './saldos/saldos.component';
 import { MovimientosComponent } from './movimientos/movimientos.component';
 import {MatTableModule} from '@angular/material/table';
+import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatTableModule} from '@angular/material/table';
     PopUpComponent,
     RegisterComponent,
     SaldosComponent,
-    MovimientosComponent
+    MovimientosComponent,
+    MercadoPagoComponent
   ],
   imports: [
     BrowserModule,
