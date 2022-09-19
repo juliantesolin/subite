@@ -1,5 +1,5 @@
 <div class="main-div">
-    <mat-card class="searchcontainer">
+    <mat-card class="searchcontainer" *ngIf="status == ''">
         <div class="searchcontainer">
             <mat-card-header class="search-part">
                 <mat-card-title>Monto a Cargar</mat-card-title>
@@ -8,6 +8,17 @@
                 <input type="number" matInput placeholder="Saldo" [(ngModel)]="nuevoSaldo" required>
             </mat-form-field>
             <button mat-flat-button color="primary" id="loginButton" (click)="test1()">Recargar con Mercado Pago</button>
+        </div>
+    </mat-card>
+    <mat-card class="searchcontainer" *ngIf="status != ''">
+        <div class="searchcontainer">
+            <mat-card-header class="search-part">
+                <mat-card-title>Cargaste saldo</mat-card-title>
+            </mat-card-header>
+            <mat-card-header class="search-part">
+                <mat-card-title>Cargaste {{nuevoSaldo}} ARS a tu cuenta</mat-card-title>
+            </mat-card-header>
+            <button mat-flat-button color="primary" id="loginButton" (click)="volverASaldos()">Volver a Tu Saldo</button>
         </div>
     </mat-card>
 </div>

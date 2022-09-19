@@ -22,6 +22,8 @@ export class SaldosComponent implements OnInit {
 
     this.accountService.getAccountInfo(token);
 
+    
+
 
     this.accountService.getAccountInfo(token).subscribe(
       data => {      
