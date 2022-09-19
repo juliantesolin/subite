@@ -59,7 +59,7 @@ export class MercadoPagoComponent implements OnInit {
     }
 
     let token = localStorage.getItem('token') + ''
-    let mercadoPagoRequest = new MercadoPagoRequest('all',new BackUrls( this.urlDev + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''), [new Item('Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)] )
+    let mercadoPagoRequest = new MercadoPagoRequest('all',new BackUrls( this.urlProd + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''), [new Item('Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)] )
 
     this.mercadoPagoService.pedirLinkMP(mercadoPagoRequest).subscribe(
       data => {      
