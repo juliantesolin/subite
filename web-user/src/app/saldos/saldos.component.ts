@@ -15,17 +15,17 @@ export class SaldosComponent implements OnInit {
 
   account! : AccountInfoResponse
   loading = false;
+  token! : string
   constructor(private accountService: AccountService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
-    let token = localStorage.getItem('token') + ''
+    if(localStorage.getItem('token')){
+      this.token = localStorage.getItem('token') + ''
+    }else{
+      this.router.navigate(['login'], {  });
+    }
 
-    this.accountService.getAccountInfo(token);
-
-    
-
-
-    this.accountService.getAccountInfo(token).subscribe(
+    this.accountService.getAccountInfo(this.token).subscribe(
       data => {      
         console.log('Te logueaste '+ data.logged)
         this.loading = false

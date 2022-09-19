@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { TransactionResponse } from '../models/transactions-response';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { AccountService } from '../services/account.service';
@@ -23,7 +24,8 @@ const TRANSACTIONS: TransactionResponse[] = [
 })
 export class MovimientosComponent implements OnInit {
 
-  constructor(private accountService: AccountService, public dialog: MatDialog) { }
+  token!: string
+  constructor(private accountService: AccountService, public dialog: MatDialog, private router:Router) { }
 
   loading = false;
   displayedColumns: string[] = ['type', 'amount', 'currency', 'date'];
@@ -31,12 +33,16 @@ export class MovimientosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let token = localStorage.getItem('token') + ''
+    if(localStorage.getItem('token')){
+      this.token = localStorage.getItem('token') + ''
+    }else{
+      this.router.navigate(['login'], {  });
+    }
 
-    this.accountService.getAccountInfo(token);
+    this.accountService.getAccountInfo(this.token);
 
 
-    this.accountService.getAccountInfo(token).subscribe(
+    this.accountService.getAccountInfo(this.token).subscribe(
       data => {      
         console.log('Te logueaste '+ data.logged)
         this.loading = false

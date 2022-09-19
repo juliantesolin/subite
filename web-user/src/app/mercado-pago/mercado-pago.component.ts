@@ -5,6 +5,7 @@ import { BackUrls, Item, MercadoPagoRequest } from '../models/mercadopago-reques
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { MercadoPagoService } from '../services/mercado-pago.service';
 import { SaldosService } from '../services/saldos.service';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-mercado-pago',
@@ -55,11 +56,28 @@ export class MercadoPagoComponent implements OnInit {
   test1(){
 
     if(this.nuevoSaldo <= 0){
+      this.dialog.open(PopUpComponent, {
+        width: '350px',
+        data: {
+          dataKey: 'El saldo debe ser mayor que cero.'
+        }
+      });
       return
     }
 
-    let token = localStorage.getItem('token') + ''
-    let mercadoPagoRequest = new MercadoPagoRequest('all',new BackUrls( this.urlProd + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''), [new Item('Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)] )
+    let token = this.userToken != '' ? this.userToken : localStorage.getItem('token') + ''
+
+    if(token == ''){
+      this.dialog.open(PopUpComponent, {
+        width: '350px',
+        data: {
+          dataKey: 'Error de credenciales. Proba desloguearte y volver a ingresar.'
+        }
+      });
+      return
+    }
+
+    let mercadoPagoRequest = new MercadoPagoRequest('all',new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''), [new Item('Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)] )
 
     this.mercadoPagoService.pedirLinkMP(mercadoPagoRequest).subscribe(
       data => {      
