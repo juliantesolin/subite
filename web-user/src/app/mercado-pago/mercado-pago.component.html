@@ -7,7 +7,8 @@
             <mat-form-field class="search-part">
                 <input type="number" matInput placeholder="Saldo" [(ngModel)]="nuevoSaldo" required>
             </mat-form-field>
-            <button mat-flat-button color="primary" id="loginButton" (click)="test1()">Recargar con Mercado Pago</button>
+            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="test1()">Recargar con Mercado Pago</button>
+            <button class="button-1" mat-flat-button color="primary" id="backButton" (click)="backButtonOnClick()">Volver</button>
         </div>
     </mat-card>
     <mat-card class="searchcontainer" *ngIf="status != ''">

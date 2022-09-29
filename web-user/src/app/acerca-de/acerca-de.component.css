@@ -1,0 +1,14 @@
+.container-static{
+  background-color: white!important;
+  width: 1000px;
+  margin:auto;
+  padding-top: 20px;
+  padding: 20px;
+}
+
+.container-static h1{
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
+
+}

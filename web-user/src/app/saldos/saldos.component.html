@@ -1,13 +1,15 @@
 <div class="main-div">
     <mat-card class="searchcontainer">
-        <div class="searchcontainer">
+    <div class="searchcontainer">
             <mat-card-header class="search-part">
-                <mat-card-title>Tu Saldo</mat-card-title>
+                <mat-card-title>Tu Saldo es de</mat-card-title>
             </mat-card-header>
             <mat-card-header class="search-part">
-                <mat-card-title>{{account.account.currency}} {{account.account.amount}}</mat-card-title>
+                <mat-card-title class="saldo">{{account.account.currency}} {{account.account.balance}}</mat-card-title>
             </mat-card-header>
-        </div>
-        <button mat-flat-button color="primary" id="loginButton" (click)="recargaButtonOnClick()" [disabled]="loading">Recargar Saldo</button>
+        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="recargaButtonOnClick()" [disabled]="loading">Recargar Saldo</button>
+        <button class="button-1" mat-flat-button color="primary" id="transferButton" (click)="transferButtonOnClick()" [disabled]="loading">Transferir Saldo</button>
+        <button class="button-1" mat-flat-button color="primary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
+    </div>
     </mat-card>
 </div>

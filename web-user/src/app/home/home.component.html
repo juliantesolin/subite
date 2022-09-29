@@ -1,23 +1,26 @@
 <div class="main-div">
-    <mat-card class="searchcontainer">
-        <div class="fondo1">
-        <div>
-            <button mat-flat-button color="basic" (click)="saldosClick()" style="margin-top: 6em;">Saldo y Recargas</button>
-        </div>
-    </div>
-    </mat-card>
-    <mat-card class="searchcontainer">
-        <div class="fondo2">
-        <div>
-            <button mat-flat-button color="basic" (click)="movimientosClick()" style="margin-top: 6em;">Tus Movimientos</button>
-        </div>
-        </div>
-    </mat-card>
-    <mat-card class="searchcontainer">
-        <div class="fondo3">
-        <div>
-            <button mat-flat-button color="basic" (click)="roboClick()" style="margin-top: 6em;">Denunciar Robo o Perdida</button>
-        </div>
-        </div>
-    </mat-card>
+  <mat-card class="searchcontainer">
+      <div class="fondo1 box-options">
+        <button mat-flat-button (click)="saldosClick()">
+            <h3><i class="bi bi-cash-coin"></i><br/>Saldo y recargas</h3>
+            <!--p>Alguna aclaración mas</p-->
+        </button>
+      </div>
+  </mat-card>
+  <mat-card class="searchcontainer">
+      <div class="fondo2 box-options">
+        <button mat-flat-button (click)="movimientosClick()">
+          <h3><i class="bi bi-signpost-split"></i><br/>Tus Movimientos</h3>
+          <!--p>Alguna aclaración mas</p-->
+        </button>
+      </div>
+  </mat-card>
+  <mat-card class="searchcontainer">
+      <div class="fondo3 box-options">
+        <button mat-flat-button (click)="roboClick()">
+          <h3><i class="bi bi-signpost-split"></i><br/>Denunciar Robo o Perdida</h3>
+          <!--p>Alguna aclaración mas</p-->
+        </button>
+      </div>
+  </mat-card>
 </div>

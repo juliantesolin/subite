@@ -1,5 +1,5 @@
 .main-div{
-    height:95vh;
+    height:80vh;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -28,6 +28,13 @@
  }
 
  mat-form-field {
-  width: 25vh;
+  width: 35vh;
   margin-bottom:2%;
+}
+
+
+button#loginButton {
+  width: 35vh;
+  background-color: #00FF97;
+  color: #424242;
 }

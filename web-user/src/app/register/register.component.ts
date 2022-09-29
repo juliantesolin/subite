@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
     )
 
     this.loginService.registerUser(registerRequest).subscribe(
+      // usuario existente.. 50001 no lo agarramos
       data => {
         console.log('Te registraste con el usuario '+ data.usr_data.name)
         this.router.navigate(['login'])},

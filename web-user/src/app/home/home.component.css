@@ -1,5 +1,5 @@
 .main-div{
-    height:95vh;
+    min-height:80vh;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -48,4 +48,29 @@
   background-size: cover;
   width: 50em;
   height: 15em;
+}
+
+.box-options{
+  display: grid;
+  text-align: center;
+}
+
+.box-options>button {
+  width: 20em;
+  background-color: white;
+  color: #525252;
+  font-size: 1.2em;
+  margin:auto;
+  padding: 4px;
+}
+
+.box-options>button h3{
+  font-weight: 500;
+  line-height: 1.3;
+  font-size: 1.25em;
+}
+
+.box-options>button i{
+  font-size: 2em;
+  color: #37bbed;
 }

@@ -1,9 +1,9 @@
 .main-div{
-    height:95vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-  }
+  min-height:80vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
 
   .searchcontainer {
     text-align:center;
@@ -13,8 +13,14 @@
  .saldo {
   text-align:center;
   width: 100%;
-  margin-bottom:5%;
-  font-size: large;
+  margin-bottom:15%;
+  font-size: 3em
+}
+
+.button-1 {
+  margin-top: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
  .searchcontainer .search-part {

@@ -3,7 +3,7 @@
 }
 
 .fondo{
-  background-image: url(../assets/fondo.jpg);
+  background-image: url(../assets/bus-interior.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,7 +33,6 @@
   background: #424242;
   padding-bottom: 32px;
   padding-top: 10px !important;
-  border-top: solid 1px #ddd;
 }
 
 .main-footer li a {
@@ -43,3 +42,4 @@
   text-decoration: none !important;
   color: #fff;
 }
+

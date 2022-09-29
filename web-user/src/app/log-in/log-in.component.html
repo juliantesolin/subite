@@ -3,7 +3,7 @@
 <mat-card class="searchcontainer">
   <div class="searchcontainer">
     <mat-card-header class="search-part">
-        <mat-card-title>LogIn</mat-card-title>
+        <mat-card-title>¡Hola! Ingresá tu usuario y contraseña</mat-card-title>
    </mat-card-header>
    <mat-card-content>
 
@@ -22,9 +22,10 @@
         </button>
     </mat-form-field>
   </div>
-    <button mat-flat-button color="primary" id="loginButton" (click)="loginButtonOnClick()" [disabled]="loading">Iniciar sesion</button>
-</mat-card-content>
-<a routerLink='/register' [hidden]="loading">Registrate</a>
+
+    <button mat-flat-button color="primary" class="login-button" id="loginButton" (click)="loginButtonOnClick()" [disabled]="loading">INGRESAR</button>
+  </mat-card-content>
+<a routerLink='/register' [hidden]="loading">Crear cuenta</a>
 </div>
 </mat-card>
 <mat-spinner *ngIf="loading" class="loader"></mat-spinner>

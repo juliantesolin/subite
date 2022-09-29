@@ -99,4 +99,8 @@ export class MercadoPagoComponent implements OnInit {
     this.router.navigate(['saldos'], {  });
   }
 
+  backButtonOnClick() {
+    this.router.navigate(['saldos'], {  });
+  }
+
 }

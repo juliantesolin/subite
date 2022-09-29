@@ -27,6 +27,9 @@ import { SaldosComponent } from './saldos/saldos.component';
 import { MovimientosComponent } from './movimientos/movimientos.component';
 import {MatTableModule} from '@angular/material/table';
 import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
+import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones.component';
+import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
     RegisterComponent,
     SaldosComponent,
     MovimientosComponent,
-    MercadoPagoComponent
+    MercadoPagoComponent,
+    TerminosCondicionesComponent,
+    AcercaDeComponent,
+    SugerenciasComponent
   ],
   imports: [
     BrowserModule,

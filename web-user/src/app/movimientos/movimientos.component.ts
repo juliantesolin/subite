@@ -59,6 +59,8 @@ export class MovimientosComponent implements OnInit {
       )
   }
 
-
+  backButtonOnClick() {
+    this.router.navigate(['home'], {  });
+  }
 
 }

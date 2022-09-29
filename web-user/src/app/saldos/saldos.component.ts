@@ -46,4 +46,11 @@ export class SaldosComponent implements OnInit {
     this.router.navigate(['mercadoPago'], {  });
   }
 
+  transferButtonOnClick() {
+  }
+
+  backButtonOnClick() {
+    this.router.navigate(['home'], {  });
+  }
+
 }
