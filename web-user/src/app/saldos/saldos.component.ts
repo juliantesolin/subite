@@ -25,9 +25,9 @@ export class SaldosComponent implements OnInit {
       this.router.navigate(['login'], {  });
     }
 
+    this.loading = true
     this.accountService.getAccountInfo(this.token).subscribe(
       data => {      
-        console.log('Te logueaste '+ data.logged)
         this.loading = false
         this.account = data},
       error => {

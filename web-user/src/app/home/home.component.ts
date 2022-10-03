@@ -30,6 +30,6 @@ export class HomeComponent implements OnInit {
   }
 
   roboClick(){
-    
+    this.router.navigate(['robo'], {  });
   }
 }

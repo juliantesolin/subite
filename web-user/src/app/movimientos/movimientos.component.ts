@@ -39,8 +39,8 @@ export class MovimientosComponent implements OnInit {
       this.router.navigate(['login'], {  });
     }
 
-    this.accountService.getAccountInfo(this.token);
 
+    this.loading = true;
 
     this.accountService.getAccountInfo(this.token).subscribe(
       data => {      

@@ -10,10 +10,12 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones.component';
 import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import { RoboComponent } from './robo/robo.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LogInComponent },
+  { path: 'robo', component: RoboComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'confirmarEmail', component: VerifyEmailComponent },
   { path: 'home', component: HomeComponent },

@@ -14,12 +14,13 @@
     <mat-card class="searchcontainer" *ngIf="status != ''">
         <div class="searchcontainer">
             <mat-card-header class="search-part">
-                <mat-card-title>Cargaste saldo</mat-card-title>
+                <mat-card-title>Se acreditó tu pago</mat-card-title>
             </mat-card-header>
             <mat-card-header class="search-part">
-                <mat-card-title>Cargaste {{nuevoSaldo}} ARS a tu cuenta</mat-card-title>
+                <mat-card-title>Cargaste ARS {{nuevoSaldo}} a tu cuenta</mat-card-title>
             </mat-card-header>
-            <button mat-flat-button color="primary" id="loginButton" (click)="volverASaldos()">Volver a Tu Saldo</button>
+            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="volverASaldos()">Volver a Tu Saldo</button>
         </div>
     </mat-card>
+    <mat-spinner *ngIf="loading" class="loader"></mat-spinner>
 </div>

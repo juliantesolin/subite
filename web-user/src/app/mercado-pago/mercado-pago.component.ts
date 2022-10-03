@@ -18,6 +18,7 @@ export class MercadoPagoComponent implements OnInit {
   nuevoSaldo: number = 0;
   userToken: string = '';
   status: string = '';
+  loading = false
 
   urlProd = 'https://zealous-beach-043a3b010.1.azurestaticapps.net/'
   urlDev = 'http://localhost:4200/'
@@ -33,12 +34,21 @@ export class MercadoPagoComponent implements OnInit {
 
       let token = localStorage.getItem('token') + ''
 
+      if(!localStorage.getItem('token') && this.userToken == ''){
+        this.router.navigate(['login'], {  });
+        return
+      }
+
+
       if(this.status == 'approved'){
+        this.loading = true
         this.saldosService.postCargarSaldo(this.userToken, this.nuevoSaldo).subscribe(
           data => {      
+            this.loading = false
             console.log(data)
           },
           error => {
+            this.loading = false
             this.dialog.open(PopUpComponent, {
               width: '350px',
               data: {

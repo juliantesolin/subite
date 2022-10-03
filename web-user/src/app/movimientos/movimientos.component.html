@@ -33,6 +33,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <button class="button-1" mat-flat-button color="primary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
+      <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
     </mat-card>
+    <mat-spinner *ngIf="loading" class="loader"></mat-spinner>
 </div>

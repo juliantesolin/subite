@@ -30,6 +30,7 @@ import { MercadoPagoComponent } from './mercado-pago/mercado-pago.component';
 import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones.component';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { SugerenciasComponent } from './sugerencias/sugerencias.component';
+import { RoboComponent } from './robo/robo.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SugerenciasComponent } from './sugerencias/sugerencias.component';
     MercadoPagoComponent,
     TerminosCondicionesComponent,
     AcercaDeComponent,
-    SugerenciasComponent
+    SugerenciasComponent,
+    RoboComponent
   ],
   imports: [
     BrowserModule,

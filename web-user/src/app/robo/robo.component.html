@@ -1,0 +1,35 @@
+<div class="main-div">
+    <mat-card class="searchcontainer">
+    <div>
+            <mat-card-header class="search-part">
+                <mat-card-title>Denunciar robo o perdida</mat-card-title>
+            </mat-card-header>
+<!--             <mat-divider></mat-divider>  
+            <mat-form-field class="search-part">
+                <input matInput [(ngModel)]="oldPass" placeholder="Contraseña actual" [type]="hide ? 'password' : 'text'" class="mat-form-field" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field> -->
+            <mat-divider></mat-divider>  
+            <mat-form-field class="search-part">
+                <input matInput [(ngModel)]="newPass" placeholder="Nueva contraseña" [type]="hide ? 'password' : 'text'" class="mat-form-field" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="search-part">
+                <input matInput [(ngModel)]="repeatNewPass" placeholder="Reingresar contraseña" [type]="hide ? 'password' : 'text'" class="mat-form-field" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-divider></mat-divider>  
+    <div style="display:grid ;">
+        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="reestablecerButtonOnClick()" [disabled]="loading">Reestablecer cuenta</button>
+        <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
+    </div>
+    </div>
+    </mat-card>
+    <mat-spinner *ngIf="loading" class="loader"></mat-spinner>
+</div>
