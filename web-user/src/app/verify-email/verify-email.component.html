@@ -1,2 +1,21 @@
-<p>verify-email works! falta agregar un mensaje d error o confirmación</p>
+
+<div class="container-static">
+  <h1></h1>
+  <div *ngIf="confirmacion">
+    <div class="text-center alert alert-success" role="alert">
+      <h4 class="alert-heading"><i class="bi bi-check-square-fill"></i><br/><br/>Bien hecho!</h4>
+      <p>La confirmación ha sido exitosa.</p>
+      <hr>
+      <p class="mb-0">Ya puede iniciar sesión.</p>
+    </div>
+  </div>
+  <div *ngIf="!confirmacion">
+    <div class="text-center alert alert-danger" role="alert">
+      <h4 class="alert-heading"><i class="bi bi-x-square-fill" ></i><br/><br/>Error</h4>
+      <p>La confirmación ha fallado.</p>
+      <hr>
+      <p class="mb-0">Puede ser que el token se ha vencido o no es válido.</p>
+    </div>
+  </div>
+</div>
 

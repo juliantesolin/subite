@@ -7,6 +7,7 @@ import { MovimientosComponent } from './movimientos/movimientos.component';
 import { RegisterComponent } from './register/register.component';
 import { SaldosComponent } from './saldos/saldos.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { TransferComponent } from './transfer/transfer.component';
 import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-condiciones.component';
 import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'robo', component: RoboComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'confirmarEmail', component: VerifyEmailComponent },
+  { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'transfer', component: TransferComponent },
   { path: 'home', component: HomeComponent },
   { path: 'saldos', component: SaldosComponent },
   { path: 'movimientos', component: MovimientosComponent },

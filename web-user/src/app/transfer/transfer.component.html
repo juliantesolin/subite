@@ -1,0 +1,25 @@
+<div class="main-div">
+  <mat-step [stepControl]="dataFormGroup" errorMessage="Revisa tus datos.">
+    <form [formGroup]="dataFormGroup">
+      <mat-card class="searchcontainer">
+          <mat-card-header class="search-part">
+              <mat-card-title>Monto a transferir</mat-card-title>
+          </mat-card-header>
+          <mat-form-field class="search-part">
+            <mat-form-field class="field">
+              <input matInput placeholder="Ingresa el mail del usuario" formControlName="mailCtrl" required>
+            </mat-form-field>
+            <mat-form-field class="field">
+              <input matInput placeholder="Ingresa el id del usuario" formControlName="iduserCtrl" required>
+            </mat-form-field>
+            <mat-form-field class="field">
+              <input matInput placeholder="Ingresa el monto a transferir" formControlName="montoCtrl" required>
+            </mat-form-field>
+          </mat-form-field>
+          <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="transferir()">Transferir saldo</button>
+          <button class="button-1" mat-flat-button color="primary" id="backButton" (click)="backButtonOnClick()">Volver</button>
+      </mat-card>
+    </form>
+    </mat-step>
+
+</div>

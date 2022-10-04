@@ -27,7 +27,7 @@ export class SaldosComponent implements OnInit {
 
     this.loading = true
     this.accountService.getAccountInfo(this.token).subscribe(
-      data => {      
+      data => {
         this.loading = false
         this.account = data},
       error => {
@@ -47,6 +47,7 @@ export class SaldosComponent implements OnInit {
   }
 
   transferButtonOnClick() {
+    this.router.navigate(['transfer'], {  });
   }
 
   backButtonOnClick() {

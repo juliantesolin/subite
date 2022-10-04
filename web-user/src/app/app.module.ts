@@ -31,6 +31,7 @@ import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-co
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { RoboComponent } from './robo/robo.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RoboComponent } from './robo/robo.component';
     TerminosCondicionesComponent,
     AcercaDeComponent,
     SugerenciasComponent,
-    RoboComponent
+    RoboComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,
