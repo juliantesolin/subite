@@ -1,3 +1,4 @@
+import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -14,7 +15,9 @@ export class RoboComponent implements OnInit {
 
   loading = false;
   token! : string
-  hide = true;
+  hide_op = true;
+  hide_np = true;
+  hide_rp = true;
 
   oldPass :string = "";
   newPass :string = "";
@@ -54,11 +57,20 @@ export class RoboComponent implements OnInit {
     }
 
     this.loading = true;
-    this.accountService.reportUser(this.newPass, this.token).subscribe(
+    this.accountService.reportUser(this.oldPass, this.newPass, this.token).subscribe(
     data => {      
       this.loading = false
-      localStorage.removeItem('token')
-      this.router.navigate(['login'], {  });
+      if(data.result != 0){
+        localStorage.removeItem('token')
+        this.router.navigate(['login'], {  });
+      }else{
+        this.dialog.open(PopUpComponent, {
+          width: '350px',
+          data: {
+            dataKey: data.errors[0].msg
+          }
+        });
+      }
     },
     error => {
       this.loading = false

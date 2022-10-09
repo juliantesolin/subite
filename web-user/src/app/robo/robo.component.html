@@ -4,24 +4,24 @@
             <mat-card-header class="search-part">
                 <mat-card-title>Denunciar robo o perdida</mat-card-title>
             </mat-card-header>
-<!--             <mat-divider></mat-divider>  
-            <mat-form-field class="search-part">
-                <input matInput [(ngModel)]="oldPass" placeholder="Contraseña actual" [type]="hide ? 'password' : 'text'" class="mat-form-field" required>
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field> -->
             <mat-divider></mat-divider>  
             <mat-form-field class="search-part">
-                <input matInput [(ngModel)]="newPass" placeholder="Nueva contraseña" [type]="hide ? 'password' : 'text'" class="mat-form-field" required>
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input matInput [(ngModel)]="oldPass" placeholder="Contraseña actual" [type]="hide_op ? 'password' : 'text'" class="mat-form-field" required>
+                <button mat-icon-button matSuffix (click)="hide_op = !hide_op" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide_op">
+                  <mat-icon>{{hide_op ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-divider></mat-divider>  
+            <mat-form-field class="search-part">
+                <input matInput [(ngModel)]="newPass" placeholder="Nueva contraseña" [type]="hide_np ? 'password' : 'text'" class="mat-form-field" required>
+                <button mat-icon-button matSuffix (click)="hide_np = !hide_np" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide_np">
+                  <mat-icon>{{hide_np ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
             <mat-form-field class="search-part">
-                <input matInput [(ngModel)]="repeatNewPass" placeholder="Reingresar contraseña" [type]="hide ? 'password' : 'text'" class="mat-form-field" required>
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <input matInput [(ngModel)]="repeatNewPass" placeholder="Reingresar contraseña" [type]="hide_rp ? 'password' : 'text'" class="mat-form-field" required>
+                <button mat-icon-button matSuffix (click)="hide_rp = !hide_rp" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide_rp">
+                  <mat-icon>{{hide_rp ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
             <mat-divider></mat-divider>  

@@ -29,6 +29,18 @@ export class SaldosService extends BaseService{
 
     }
 
+    getReference(token : string, saldo : number): Observable<any> {
+
+        let headers = new HttpHeaders();
+        headers = headers.set('X-Auth-Token', token);
+
+        return this.httpClient.post<any>(baseUrl + '/wbs/api/trans/reference', new TopUpequest(saldo), { headers: headers } ).pipe(
+            map(data =>{
+            return data;
+            }));
+
+    }
+
     transferUser(token : string, transferRequest: TransferRequest): Observable<TransferResponse> {
 
       let headers = new HttpHeaders();

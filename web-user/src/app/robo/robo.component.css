@@ -11,7 +11,7 @@
    }
   
   .button-1 {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 2px;
     margin-right: 2px;
     width: 100%;
@@ -29,6 +29,7 @@
    .mat-form-field {
     text-align:center;
     width: 80vh;
+    margin-top: 5px;
  }
 
  .loader {

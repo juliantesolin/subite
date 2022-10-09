@@ -53,8 +53,15 @@ export class RegisterComponent implements OnInit {
     this.loginService.registerUser(registerRequest).subscribe(
       // usuario existente.. 50001 no lo agarramos
       data => {
-        console.log('Te registraste con el usuario '+ data.usr_data.name)
-        this.router.navigate(['login'])},
+        if(data.result != 0){
+          this.router.navigate(['login'])
+        }else{
+          this.dialog.open(PopUpComponent, {
+            width: '350px',
+            data: {
+              dataKey: data.errors[0].msg
+            }})
+          }},
       error => {
         this.dialog.open(PopUpComponent, {
           width: '350px'

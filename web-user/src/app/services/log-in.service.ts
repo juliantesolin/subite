@@ -32,9 +32,9 @@ export class LoginService extends BaseService{
 
     }
 
-    registerUser(registerRequest : RegisterRequest): Observable<RegisterResponse> {
+    registerUser(registerRequest : RegisterRequest): Observable<any> {
 
-        return this.httpClient.post<RegisterResponse>(baseUrl + '/wbs/api/signup', registerRequest).pipe(
+        return this.httpClient.post<any>(baseUrl + '/wbs/api/signup', registerRequest).pipe(
             map(data =>{
             return data;
             }));

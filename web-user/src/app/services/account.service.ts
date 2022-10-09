@@ -48,13 +48,14 @@ export class AccountService extends BaseService{
     verifyEmail(){
   }
 
-  reportUser(newPass : string, token : string): Observable<any> {
+  reportUser(oldPass: string, newPass : string, token : string): Observable<any> {
 
     let headers = new HttpHeaders();
     headers = headers.set('X-Auth-Token', token);
 
     var ReportUserRequest = {
-      usr_pwd: newPass
+      usr_pwd: newPass,
+      usr_pwd_old: oldPass
     }
 
     return this.httpClient.post<any>(baseUrl + '/wbs/api/trans/report', ReportUserRequest , { headers: headers }).pipe(

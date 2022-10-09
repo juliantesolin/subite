@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BackUrls, Item, MercadoPagoRequest } from '../models/mercadopago-request';
+import { BackUrls, IdentificationRequest, Item, MercadoPagoRequest, PaymentMethods, PreferencePayerRequest, PreferencePaymentTypeRequest } from '../models/mercadopago-request';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { MercadoPagoService } from '../services/mercado-pago.service';
 import { SaldosService } from '../services/saldos.service';
@@ -22,6 +22,7 @@ export class MercadoPagoComponent implements OnInit {
 
   urlProd = 'https://zealous-beach-043a3b010.1.azurestaticapps.net/'
   urlDev = 'http://localhost:4200/'
+  notificationUrl = 'https://trapelsic.azurewebsites.net/wbs/api/mp/notifications'
 
   constructor(private mercadoPagoService : MercadoPagoService, public dialog: MatDialog, private activatedRoute: ActivatedRoute, private router:Router, private saldosService : SaldosService) { }
 
@@ -29,18 +30,14 @@ export class MercadoPagoComponent implements OnInit {
 
     this.activatedRoute.queryParams.subscribe(params => {
       this.nuevoSaldo = params['nuevo_saldo'] ? +params['nuevo_saldo'] : 0 ;
-      this.userToken = params['user_token'] ? params['user_token'] : '';
       this.status = params['collection_status'] ? params['collection_status'] : '';
 
-      let token = localStorage.getItem('token') + ''
-
-      if(!localStorage.getItem('token') && this.userToken == ''){
+      if(!localStorage.getItem('token')){
         this.router.navigate(['login'], {  });
         return
       }
 
-
-      if(this.status == 'approved'){
+/*       if(this.status == 'approved'){
         this.loading = true
         this.saldosService.postCargarSaldo(this.userToken, this.nuevoSaldo).subscribe(
           data => {      
@@ -57,7 +54,7 @@ export class MercadoPagoComponent implements OnInit {
             });
           }
           )
-      }
+      } */
 
     });
 
@@ -87,7 +84,20 @@ export class MercadoPagoComponent implements OnInit {
       return
     }
 
-    let mercadoPagoRequest = new MercadoPagoRequest('all',new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''), [new Item('Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)] )
+    this.saldosService.getReference(token, this.nuevoSaldo).subscribe(
+      data => {      
+
+        let mercadoPagoRequest = new MercadoPagoRequest(
+            new PreferencePayerRequest(data.usr_name, data.usr_lname, data.usr_email, new IdentificationRequest('DNI',data.usr_document)) ,
+            'all',
+            //new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''),
+            new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo,'',''),
+            [new Item(data.external_reference,'Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)],
+            this.notificationUrl,
+            data.external_reference,
+            new PaymentMethods(1,[new PreferencePaymentTypeRequest('ticket')]),
+            'BONDIPAGO-TRAPELSIC',
+            true)
 
     this.mercadoPagoService.pedirLinkMP(mercadoPagoRequest).subscribe(
       data => {      
@@ -103,6 +113,18 @@ export class MercadoPagoComponent implements OnInit {
         });
       }
       )
+
+      },
+      error => {
+        this.dialog.open(PopUpComponent, {
+          width: '350px',
+          data: {
+            dataKey: 'Error al obtener el numero de referencia.'
+          }
+        });
+      }
+      )
+
   }
 
   volverASaldos(){

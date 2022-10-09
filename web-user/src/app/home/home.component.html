@@ -1,14 +1,14 @@
 <div class="main-div">
   <mat-card class="searchcontainer">
-      <div class="fondo1 box-options">
+      <div class="box-options">
         <button mat-flat-button (click)="saldosClick()">
-            <h3><i class="bi bi-cash-coin"></i><br/>Saldo y recargas</h3>
+            <h3><i class="bi bi-cash-coin"></i><br/>Saldo y Recargas</h3>
             <!--p>Alguna aclaración mas</p-->
         </button>
       </div>
   </mat-card>
   <mat-card class="searchcontainer">
-      <div class="fondo2 box-options">
+      <div class="box-options">
         <button mat-flat-button (click)="movimientosClick()">
           <h3><i class="bi bi-truck-front"></i><br/>Tus Movimientos</h3>
           <!--p>Alguna aclaración mas</p-->
@@ -16,7 +16,15 @@
       </div>
   </mat-card>
   <mat-card class="searchcontainer">
-      <div class="fondo3 box-options">
+    <div class="box-options">
+      <button mat-flat-button (click)="movimientosClick()">
+        <h3><i class="bi bi-credit-card"></i><br/>Asociar Tarjeta</h3>
+        <!--p>Alguna aclaración mas</p-->
+      </button>
+    </div>
+</mat-card>
+  <mat-card class="searchcontainer">
+      <div class="box-options">
         <button mat-flat-button (click)="roboClick()">
           <h3><i class="bi bi-shield-exclamation"></i><br/>Denunciar Robo o Perdida</h3>
           <!--p>Alguna aclaración mas</p-->
