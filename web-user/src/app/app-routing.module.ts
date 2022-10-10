@@ -12,6 +12,7 @@ import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-co
 import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { RoboComponent } from './robo/robo.component';
+import { AsociarTarjetaComponent } from './asociar-tarjeta/asociar-tarjeta.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'robo', component: RoboComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'asociar-tarjeta', component: AsociarTarjetaComponent },
   { path: 'transfer', component: TransferComponent },
   { path: 'home', component: HomeComponent },
   { path: 'saldos', component: SaldosComponent },

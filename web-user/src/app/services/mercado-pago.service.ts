@@ -11,7 +11,7 @@ import { VerifyEmailRequest } from "../models/verify-email-request";
 import { MercadoPagoRequest } from "../models/mercadopago-request";
 import { MercadoPagoResponse } from "../models/mercadopago-response";
 
-let baseUrl = 'https://api.mercadolibre.com/'
+let baseUrl = 'https://api.mercadopago.com/'
 let mercadoPagoToken = 'TEST-14091157075652-060117-54ce46542705b0405da3160272f37e53-627431'
 
 @Injectable()

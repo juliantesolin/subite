@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -20,13 +21,26 @@ const TRANSACTIONS: TransactionResponse[] = [
   selector: 'app-movimientos',
   templateUrl: './movimientos.component.html',
   styleUrls: ['./movimientos.component.css'],
-  providers: [AccountService]
+  providers: [AccountService],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ opacity:1,transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ opacity:0,transform: 'translateY(-50%)' }),
+        animate(400)
+      ]),
+      transition('* => void', [
+        animate(400, style({ opacity:0,transform: 'translateY(-50%)' }))
+      ])
+    ])
+  ]
 })
 export class MovimientosComponent implements OnInit {
 
   token!: string
   constructor(private accountService: AccountService, public dialog: MatDialog, private router:Router) { }
 
+  animation = false
   loading = false;
   displayedColumns: string[] = ['type', 'amount', 'currency', 'date'];
   dataSource = TRANSACTIONS;
@@ -39,14 +53,14 @@ export class MovimientosComponent implements OnInit {
       this.router.navigate(['login'], {  });
     }
 
-
     this.loading = true;
 
     this.accountService.getAccountInfo(this.token).subscribe(
       data => {      
         console.log('Te logueaste '+ data.logged)
         this.loading = false
-        this.dataSource = data.account.transactions},
+        this.dataSource = data.account.transactions
+        this.animation = true},
       error => {
         this.loading = false
         this.dialog.open(PopUpComponent, {
@@ -60,7 +74,12 @@ export class MovimientosComponent implements OnInit {
   }
 
   backButtonOnClick() {
-    this.router.navigate(['home'], {  });
+    this.animation = false
+    setTimeout(() => 
+    {
+      this.router.navigate(['home'], {  });
+    },
+    400);
   }
 
 }

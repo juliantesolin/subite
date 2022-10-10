@@ -41,6 +41,22 @@ export class SaldosService extends BaseService{
 
     }
 
+    asociarTarjeta(token : string, numeroTarjeta : string): Observable<any> {
+
+        let headers = new HttpHeaders();
+        headers = headers.set('X-Auth-Token', token);
+
+        var newCardRequest = {
+            tarjeta: numeroTarjeta
+          }
+
+        return this.httpClient.post<any>(baseUrl + '/wbs/api/trans/newCard', newCardRequest, { headers: headers } ).pipe(
+            map(data =>{
+            return data;
+            }));
+
+    }
+
     transferUser(token : string, transferRequest: TransferRequest): Observable<TransferResponse> {
 
       let headers = new HttpHeaders();

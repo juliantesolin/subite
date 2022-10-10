@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,13 +12,26 @@ import { LoginService } from '../services/log-in.service';
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css'],
-  providers: [LoginService]
+  providers: [LoginService],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ opacity:1,transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ opacity:0,transform: 'translateY(-100%)' }),
+        animate(400)
+      ]),
+      transition('* => void', [
+        animate(400, style({ opacity:0,transform: 'translateY(-100%)' }))
+      ])
+    ])
+  ]
 })
 export class LogInComponent implements OnInit {
 
   usuario!: string;
   pass!: string;
   loading = false;
+  animation = false;
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -32,6 +46,7 @@ export class LogInComponent implements OnInit {
   constructor(private loginService: LoginService, private router:Router, public dialog: MatDialog) {
   }
   ngOnInit() {
+    this.animation = true
   }
 
   loginButtonOnClick(){
@@ -42,7 +57,12 @@ export class LogInComponent implements OnInit {
         console.log('Te logueaste con el usuario '+ data.usr_data.name)
         this.loading = false
         localStorage.setItem('token', data.token);
-        this.router.navigate(['home'])},
+        this.animation = false
+        setTimeout(() => 
+        {
+          this.router.navigate(['home'], {  });
+        },
+        400);},
       error => {
         this.loading = false
         this.dialog.open(PopUpComponent, {

@@ -2,15 +2,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AccountInfoResponse } from '../models/accountinfo-response';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-import { AccountService } from '../services/account.service';
+import { SaldosService } from '../services/saldos.service';
 
 @Component({
-  selector: 'app-saldos',
-  templateUrl: './saldos.component.html',
-  styleUrls: ['./saldos.component.css'],
-  providers: [AccountService],
+  selector: 'app-asociar-tarjeta',
+  templateUrl: './asociar-tarjeta.component.html',
+  styleUrls: ['./asociar-tarjeta.component.css'],
+  providers: [SaldosService],
   animations: [
     trigger('flyInOut', [
       state('in', style({ opacity:1,transform: 'translateY(0)' })),
@@ -24,13 +23,13 @@ import { AccountService } from '../services/account.service';
     ])
   ]
 })
-export class SaldosComponent implements OnInit {
+export class AsociarTarjetaComponent implements OnInit {
 
-  account! : AccountInfoResponse
-  loading = false;
-  animation = false;
-  token! : string
-  constructor(private accountService: AccountService, public dialog: MatDialog, private router:Router) { }
+  loading= false
+  animation = false
+  numeroTarjeta = ''
+  token = ''
+  constructor(private saldosService: SaldosService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('token')){
@@ -39,39 +38,39 @@ export class SaldosComponent implements OnInit {
       this.router.navigate(['login'], {  });
     }
     this.animation = true
+  }
+
+  asociarTarjetaClick() {
     this.loading = true
-    this.accountService.getAccountInfo(this.token).subscribe(
-      data => {
+    this.saldosService.asociarTarjeta(this.token, this.numeroTarjeta).subscribe(
+      data => {      
         this.loading = false
-        this.account = data},
+        if(data.result != 0){
+          this.dialog.open(PopUpComponent, {
+            width: '350px',
+            data: {
+              dataKey: 'No hay error, todo ok'
+            }
+          });
+        } else {
+          this.dialog.open(PopUpComponent, {
+            width: '350px',
+            data: {
+              dataKey: data.errors[0].msg
+            }
+          });
+        }
+        },
       error => {
         this.loading = false
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error al traer tu saldo.'
+            dataKey: 'Error al asociar tarjeta.'
           }
         });
       }
       )
-  }
-
-  recargaButtonOnClick() {
-    this.animation = false
-    setTimeout(() => 
-    {
-      this.router.navigate(['mercadoPago'], {  });
-    },
-    400);
-  }
-
-  transferButtonOnClick() {
-    this.animation = false
-    setTimeout(() => 
-    {
-      this.router.navigate(['transfer'], {  });
-    },
-    400);
   }
 
   backButtonOnClick() {
@@ -82,5 +81,4 @@ export class SaldosComponent implements OnInit {
     },
     400);
   }
-
 }
