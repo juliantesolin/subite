@@ -1,4 +1,5 @@
 <div class="main-div">
+    <div [@flyInOut] *ngIf="animation">
     <mat-card class="searchcontainer" *ngIf="status == ''">
         <div class="searchcontainer">
             <mat-card-header class="search-part">
@@ -24,5 +25,6 @@
             <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="volverASaldos()">Volver a Tu Saldo</button>
         </div>
     </mat-card>
+    </div>
     <mat-spinner *ngIf="loading" class="loader"></mat-spinner>
 </div>

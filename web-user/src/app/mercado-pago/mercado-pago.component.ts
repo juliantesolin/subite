@@ -6,12 +6,25 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 import { MercadoPagoService } from '../services/mercado-pago.service';
 import { SaldosService } from '../services/saldos.service';
 import { environment } from "src/environments/environment";
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-mercado-pago',
   templateUrl: './mercado-pago.component.html',
   styleUrls: ['./mercado-pago.component.css'],
-  providers: [MercadoPagoService, SaldosService]
+  providers: [MercadoPagoService, SaldosService],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ opacity:1,transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ opacity:0,transform: 'translateX(-100%)' }),
+        animate(400)
+      ]),
+      transition('* => void', [
+        animate(400, style({ opacity:0,transform: 'translateX(100%)' }))
+      ])
+    ])
+  ]
 })
 export class MercadoPagoComponent implements OnInit {
 
@@ -19,6 +32,7 @@ export class MercadoPagoComponent implements OnInit {
   userToken: string = '';
   status: string = '';
   loading = false
+  animation = false
 
   urlProd = 'https://zealous-beach-043a3b010.1.azurestaticapps.net/'
   urlDev = 'http://localhost:4200/'
@@ -31,8 +45,9 @@ export class MercadoPagoComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.nuevoSaldo = params['nuevo_saldo'] ? +params['nuevo_saldo'] : 0 ;
       this.status = params['collection_status'] ? params['collection_status'] : '';
+      this.userToken = params['user_token'] ? params['user_token'] : '';
 
-      if(!localStorage.getItem('token')){
+      if(!localStorage.getItem('token') && this.userToken == ''){
         this.router.navigate(['login'], {  });
         return
       }
@@ -57,6 +72,8 @@ export class MercadoPagoComponent implements OnInit {
       } */
 
     });
+
+    this.animation = true
 
   }
 
@@ -90,8 +107,8 @@ export class MercadoPagoComponent implements OnInit {
         let mercadoPagoRequest = new MercadoPagoRequest(
             new PreferencePayerRequest(data.usr_name, data.usr_lname, data.usr_email, new IdentificationRequest('DNI',data.usr_document)) ,
             'all',
-            //new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''),
-            new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo,'',''),
+            new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo + '&user_token=' + token,'',''),
+            //new BackUrls( environment.url + 'mercadoPago?nuevo_saldo=' + this.nuevoSaldo,'',''),
             [new Item(data.external_reference,'Recarga BondiPago','Saldo de BondiPago',1,this.nuevoSaldo)],
             this.notificationUrl,
             data.external_reference,
@@ -128,11 +145,21 @@ export class MercadoPagoComponent implements OnInit {
   }
 
   volverASaldos(){
-    this.router.navigate(['saldos'], {  });
+    this.animation = false
+    setTimeout(() => 
+    {
+      this.router.navigate(['saldos'], {  });
+    },
+    400);
   }
 
   backButtonOnClick() {
-    this.router.navigate(['saldos'], {  });
+    this.animation = false
+    setTimeout(() => 
+    {
+      this.router.navigate(['saldos'], {  });
+    },
+    400);
   }
 
 }
