@@ -33,6 +33,7 @@ import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { RoboComponent } from './robo/robo.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { AsociarTarjetaComponent } from './asociar-tarjeta/asociar-tarjeta.component';
+import { PopUpOkComponent } from './pop-up-ok/pop-up-ok.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AsociarTarjetaComponent } from './asociar-tarjeta/asociar-tarjeta.compo
     SugerenciasComponent,
     RoboComponent,
     TransferComponent,
-    AsociarTarjetaComponent
+    AsociarTarjetaComponent,
+    PopUpOkComponent
   ],
   imports: [
     BrowserModule,

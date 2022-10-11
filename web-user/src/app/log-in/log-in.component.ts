@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginRequest } from '../models/login-request';
 import { LoginResponse } from '../models/login-response';
+import { PopUpOkComponent } from '../pop-up-ok/pop-up-ok.component';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { LoginService } from '../services/log-in.service';
 
@@ -43,10 +44,34 @@ export class LogInComponent implements OnInit {
     return this.email.hasError('email') ? 'Ingrese un Email correcto' : '';
   }
   hide = true;
-  constructor(private loginService: LoginService, private router:Router, public dialog: MatDialog) {
+  constructor(private loginService: LoginService, private router:Router, public dialog: MatDialog, private activatedRoute: ActivatedRoute) {
   }
   ngOnInit() {
     this.animation = true
+    this.activatedRoute.queryParams.subscribe(params => {
+
+      switch(params['status']){
+        case 'reported': {
+          this.dialog.open(PopUpOkComponent, {
+            width: '350px',
+            data: {
+              dataKey: 'Cuenta reestablecida;Su cuenta fue reportada con exito.'
+            }
+          });
+          break
+        }
+        case 'registered': {
+          this.dialog.open(PopUpOkComponent, {
+            width: '350px',
+            data: {
+              dataKey: 'Cuenta registrada;Recuerde validar su correo electronico antes de ingresar.'
+            }
+          });
+          break
+        }
+      }
+
+    })
   }
 
   loginButtonOnClick(){
@@ -68,7 +93,7 @@ export class LogInComponent implements OnInit {
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Los datos de ingreso no son correctos. Revisa tus credenciales e intenta nuevamente.'
+            dataKey: 'Datos incorrectos;Revisa tus credenciales e intenta nuevamente.'
           }
         });
       }

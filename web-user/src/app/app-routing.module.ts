@@ -17,6 +17,7 @@ import { AsociarTarjetaComponent } from './asociar-tarjeta/asociar-tarjeta.compo
 const routes: Routes = [
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LogInComponent },
+  { path: 'login/:status', component: LogInComponent },
   { path: 'robo', component: RoboComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'verify-email', component: VerifyEmailComponent },

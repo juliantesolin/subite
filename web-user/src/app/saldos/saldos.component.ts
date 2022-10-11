@@ -49,7 +49,7 @@ export class SaldosComponent implements OnInit {
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error al traer tu saldo.'
+            dataKey: 'Error;Error al traer tu saldo.'
           }
         });
       }

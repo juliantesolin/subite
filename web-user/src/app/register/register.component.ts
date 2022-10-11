@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Algunos de tus datos faltan o no son correctos. Completalos e intenta nuevamente'
+          dataKey: 'Error;Algunos de tus datos faltan o no son correctos. Completalos e intenta nuevamente'
         }
       });
       return;
@@ -54,17 +54,20 @@ export class RegisterComponent implements OnInit {
       // usuario existente.. 50001 no lo agarramos
       data => {
         if(data.result != 0){
-          this.router.navigate(['login'])
+          this.router.navigate(['login'], {queryParams: { status: 'registered' }})
         }else{
           this.dialog.open(PopUpComponent, {
             width: '350px',
             data: {
-              dataKey: data.errors[0].msg
+              dataKey: 'Error;'+data.errors[0].msg
             }})
           }},
       error => {
         this.dialog.open(PopUpComponent, {
-          width: '350px'
+          width: '350px',
+          data: {
+            dataKey: 'Error;Error fatal'
+          }
         });
       }
       )

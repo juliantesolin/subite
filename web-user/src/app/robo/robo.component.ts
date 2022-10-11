@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,7 +10,19 @@ import { AccountService } from '../services/account.service';
   selector: 'app-robo',
   templateUrl: './robo.component.html',
   styleUrls: ['./robo.component.css'],
-  providers: [AccountService]
+  providers: [AccountService],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ opacity:1,transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ opacity:0,transform: 'translateX(-100%)' }),
+        animate(400)
+      ]),
+      transition('* => void', [
+        animate(400, style({ opacity:0,transform: 'translateX(100%)' }))
+      ])
+    ])
+  ]
 })
 export class RoboComponent implements OnInit {
 
@@ -19,6 +32,7 @@ export class RoboComponent implements OnInit {
   hide_np = true;
   hide_rp = true;
 
+  animation = false;
   oldPass :string = "";
   newPass :string = "";
   repeatNewPass :string = "";
@@ -32,6 +46,8 @@ export class RoboComponent implements OnInit {
       this.router.navigate(['login'], {  });
     }
 
+    this.animation = true
+
   }
 
   reestablecerButtonOnClick() {
@@ -40,7 +56,7 @@ export class RoboComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Las contraseñas no coinciden.'
+          dataKey: 'Error;Las contraseñas no coinciden.'
         }
       });
       return;
@@ -50,7 +66,7 @@ export class RoboComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'La nueva contraseña debe tener mas de 8 caracteres.'
+          dataKey: 'Error;La nueva contraseña debe tener mas de 8 caracteres.'
         }
       });
       return;
@@ -62,12 +78,17 @@ export class RoboComponent implements OnInit {
       this.loading = false
       if(data.result != 0){
         localStorage.removeItem('token')
-        this.router.navigate(['login'], {  });
+        this.animation = false
+        setTimeout(() => 
+        {
+          this.router.navigate(['login'], {queryParams: { status: 'reported' }});
+        },
+        400);
       }else{
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: data.errors[0].msg
+            dataKey: 'Error;' + data.errors[0].msg
           }
         });
       }
@@ -77,7 +98,7 @@ export class RoboComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Error al reestablecer la cuenta.'
+          dataKey: 'Error;Error al reestablecer la cuenta.'
         }
       });
     }
@@ -85,7 +106,12 @@ export class RoboComponent implements OnInit {
   }
 
   backButtonOnClick() {
-    this.router.navigate(['home'], {  });
+    this.animation = false
+    setTimeout(() => 
+    {
+      this.router.navigate(['home'], {  });
+    },
+    400);
   }
 
 }

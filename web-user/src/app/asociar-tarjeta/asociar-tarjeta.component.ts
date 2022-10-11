@@ -2,6 +2,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { PopUpOkComponent } from '../pop-up-ok/pop-up-ok.component';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { SaldosService } from '../services/saldos.service';
 
@@ -46,17 +47,17 @@ export class AsociarTarjetaComponent implements OnInit {
       data => {      
         this.loading = false
         if(data.result != 0){
-          this.dialog.open(PopUpComponent, {
+          this.dialog.open(PopUpOkComponent, {
             width: '350px',
             data: {
-              dataKey: 'No hay error, todo ok'
+              dataKey: 'Tarjeta Asociada;La tarjeta fue asociada correctamente a su cuenta.'
             }
           });
         } else {
           this.dialog.open(PopUpComponent, {
             width: '350px',
             data: {
-              dataKey: data.errors[0].msg
+              dataKey: 'Error;'+data.errors[0].msg
             }
           });
         }
@@ -66,7 +67,7 @@ export class AsociarTarjetaComponent implements OnInit {
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error al asociar tarjeta.'
+            dataKey: 'Error;Error al asociar tarjeta.'
           }
         });
       }

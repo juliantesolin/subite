@@ -66,7 +66,7 @@ export class MovimientosComponent implements OnInit {
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error al traer movimientos.'
+            dataKey: 'Error;Error al traer movimientos.'
           }
         });
       }
