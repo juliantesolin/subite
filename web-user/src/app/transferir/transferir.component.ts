@@ -30,6 +30,7 @@ export class TransferirComponent implements OnInit {
   token! : string
   monto: number = 0
   animation = false;
+  loading = false;
   mail: string = ''
 
   constructor(private saldosService: SaldosService, public dialog: MatDialog, private router:Router) { }
@@ -60,16 +61,29 @@ export class TransferirComponent implements OnInit {
       this.monto
     )
 
+    this.loading = true;
     this.saldosService.transferUser(this.token, transferRequest).subscribe(
       data => {
-        this.dialog.open(PopUpOkComponent, {
-          width: '350px',
-          data: {
-            dataKey: 'Saldo transferido;Enviaste '+this.monto+' a '+this.mail
-          }
-        });
+        if(data.result != 0){
+          this.loading = false
+          this.dialog.open(PopUpOkComponent, {
+            width: '350px',
+            data: {
+              dataKey: 'Saldo transferido;Enviaste $ '+this.monto+' a '+this.mail
+            }
+          });
+        }else{
+          this.loading = false
+          this.dialog.open(PopUpComponent, {
+            width: '350px',
+            data: {
+              dataKey: 'Error;' + data.errors[0].msg
+            }
+          });
+        }
       },
       error => {
+        this.loading = false
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
