@@ -13,6 +13,7 @@ export class VerifyEmailComponent implements OnInit {
 
   token!: string;
   confirmacion = false;
+  initialize = false;
 
   constructor(private route: ActivatedRoute, private loginService: LoginService) { }
 
@@ -25,15 +26,18 @@ export class VerifyEmailComponent implements OnInit {
     );
 
     this.confirmacion = false
+    this.initialize = false;
 
     this.loginService.verifyEmail(this.token).subscribe(
       data => {
         console.log('Confirmaste el correo con el usuario')
         this.confirmacion = true
+        this.initialize = true;
        } ,
       error => {
         console.log('Fallo la confirmacion')
         this.confirmacion = false
+        this.initialize = true;
       }
       )
   }

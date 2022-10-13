@@ -69,7 +69,7 @@ export class SaldosComponent implements OnInit {
     this.animation = false
     setTimeout(() => 
     {
-      this.router.navigate(['transfer'], {  });
+      this.router.navigate(['transferir'], {  });
     },
     400);
   }

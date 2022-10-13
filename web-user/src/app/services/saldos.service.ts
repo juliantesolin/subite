@@ -57,12 +57,12 @@ export class SaldosService extends BaseService{
 
     }
 
-    transferUser(token : string, transferRequest: TransferRequest): Observable<TransferResponse> {
+    transferUser(token : string, transferRequest: TransferRequest): Observable<any> {
 
       let headers = new HttpHeaders();
       headers = headers.set('X-Auth-Token', token);
 
-      return this.httpClient.post<TransferResponse>(baseUrl + '/wbs/api/trans/transfer', transferRequest , { headers: headers }).pipe(
+      return this.httpClient.post<any>(baseUrl + '/wbs/api/trans/transfer', transferRequest , { headers: headers }).pipe(
           map(data =>{
           return data;
           }));

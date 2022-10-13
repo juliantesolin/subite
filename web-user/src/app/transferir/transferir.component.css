@@ -1,0 +1,47 @@
+.main-div{
+    min-height:80vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  
+    .table {
+      width: 60em;
+    }
+  
+    .column {
+      padding-left: 16px;
+      font-size: 14px;
+      width: 8em;
+      text-align: center;
+    }
+  
+    .searchcontainer {
+      text-align:center;
+      width: 100%;
+   }
+  
+   .searchcontainer .search-part {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+   }
+  
+   .button-1 {
+    margin-top: 15px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  
+  .loader {
+    position: absolute;
+    z-index: 10;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: white!important;
+  }

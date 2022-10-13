@@ -5,31 +5,37 @@
  </mat-card-header>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
+
         <!-- Position Column -->
         <ng-container matColumnDef="type" >
           <th mat-header-cell class="column" *matHeaderCellDef> Tipo </th>
           <td mat-cell class="column" *matCellDef="let element"> {{element.type}} </td>
         </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="amount">
-          <th mat-header-cell class="column" *matHeaderCellDef> Cantidad </th>
-          <td mat-cell class="column" *matCellDef="let element"> {{element.amount}} </td>
-        </ng-container>
-      
+
         <!-- Weight Column -->
         <ng-container matColumnDef="currency">
           <th mat-header-cell class="column" *matHeaderCellDef> Moneda </th>
           <td mat-cell class="column" *matCellDef="let element"> {{element.currency}} </td>
         </ng-container>
-      
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell class="column" *matHeaderCellDef> Cantidad </th>
+          <td mat-cell class="column" *matCellDef="let element"> {{element.amount}} </td>
+        </ng-container>
+
+        <!-- Line Column -->
+        <ng-container matColumnDef="line">
+          <th mat-header-cell class="column" *matHeaderCellDef> Línea </th>
+          <td mat-cell class="column" *matCellDef="let element"> {{element.line}} </td>
+        </ng-container>
+
         <!-- Symbol Column -->
         <ng-container matColumnDef="date">
           <th mat-header-cell class="column" *matHeaderCellDef> Fecha </th>
           <td mat-cell class="column" *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
-      
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>

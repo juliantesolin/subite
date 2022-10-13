@@ -1,15 +1,12 @@
 export class TransferRequest {
-    mail: string;
-    iduser: number;
-    monto: number;
+    email: string;
+    amount: number;
 
     constructor(
-      mail : string,
-      iduser : number,
-      monto: number
+      email : string,
+      amount: number
         ) {
-        this.mail = mail;
-        this.iduser = iduser;
-        this.monto = monto;
+        this.email = email;
+        this.amount = amount;
     }
 }

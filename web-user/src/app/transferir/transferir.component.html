@@ -1,0 +1,17 @@
+<div class="main-div">
+    <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation">
+        <mat-card-header class="search-part">
+            <mat-card-title>Monto a Transferir</mat-card-title>
+        </mat-card-header>
+        <mat-form-field class="search-part">
+            <input matInput placeholder="Ingresa el mail del usuario" [(ngModel)]="mail" required>
+        </mat-form-field>
+        <mat-form-field class="search-part">
+            <input matInput placeholder="Ingresa el monto a transferir" [(ngModel)]="monto" required>
+        </mat-form-field>
+        <div style="display:grid ;"> 
+        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="transferir()">Transferir saldo</button>
+        <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()">Volver</button>
+        </div>
+    </mat-card>
+</div>

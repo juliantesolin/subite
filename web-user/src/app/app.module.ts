@@ -31,9 +31,9 @@ import { TerminosCondicionesComponent } from './terminos-condiciones/terminos-co
 import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { SugerenciasComponent } from './sugerencias/sugerencias.component';
 import { RoboComponent } from './robo/robo.component';
-import { TransferComponent } from './transfer/transfer.component';
 import { AsociarTarjetaComponent } from './asociar-tarjeta/asociar-tarjeta.component';
 import { PopUpOkComponent } from './pop-up-ok/pop-up-ok.component';
+import { TransferirComponent } from './transferir/transferir.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +50,9 @@ import { PopUpOkComponent } from './pop-up-ok/pop-up-ok.component';
     AcercaDeComponent,
     SugerenciasComponent,
     RoboComponent,
-    TransferComponent,
     AsociarTarjetaComponent,
-    PopUpOkComponent
+    PopUpOkComponent,
+    TransferirComponent
   ],
   imports: [
     BrowserModule,

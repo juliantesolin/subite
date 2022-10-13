@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -26,11 +26,11 @@ const TRANSACTIONS: TransactionResponse[] = [
     trigger('flyInOut', [
       state('in', style({ opacity:1,transform: 'translateY(0)' })),
       transition('void => *', [
-        style({ opacity:0,transform: 'translateY(-50%)' }),
+        style({ opacity:0,transform: 'translateX(-100%)' }),
         animate(400)
       ]),
       transition('* => void', [
-        animate(400, style({ opacity:0,transform: 'translateY(-50%)' }))
+        animate(400, style({ opacity:0,transform: 'translateX(100%)' }))
       ])
     ])
   ]
@@ -40,10 +40,10 @@ export class MovimientosComponent implements OnInit {
   token!: string
   constructor(private accountService: AccountService, public dialog: MatDialog, private router:Router) { }
 
-  animation = false
   loading = false;
-  displayedColumns: string[] = ['type', 'amount', 'currency', 'date'];
+  displayedColumns: string[] = ['type', 'currency', 'amount', 'line', 'date'];
   dataSource = TRANSACTIONS;
+  animation = false
 
   ngOnInit(): void {
 
@@ -53,20 +53,20 @@ export class MovimientosComponent implements OnInit {
       this.router.navigate(['login'], {  });
     }
 
-    this.loading = true;
 
+    this.loading = true;
+    this.animation = true
     this.accountService.getAccountInfo(this.token).subscribe(
-      data => {      
+      data => {
         console.log('Te logueaste '+ data.logged)
         this.loading = false
-        this.dataSource = data.account.transactions
-        this.animation = true},
+        this.dataSource = data.account.transactions},
       error => {
         this.loading = false
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error;Error al traer movimientos.'
+            dataKey: 'Error al traer movimientos.'
           }
         });
       }

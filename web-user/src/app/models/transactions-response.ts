@@ -4,6 +4,7 @@ export class TransactionResponse {
     currency!: string;
     amount!: number;
     type!: string;
+    line!: string;
 
     constructor(
         ) {
