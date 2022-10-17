@@ -79,15 +79,27 @@ export class LogInComponent implements OnInit {
 
     this.loginService.loginUser(new LoginRequest(this.usuario, this.pass)).subscribe(
       data => {      
-        console.log('Te logueaste con el usuario '+ data.usr_data.name)
-        this.loading = false
-        localStorage.setItem('token', data.token);
-        this.animation = false
-        setTimeout(() => 
-        {
-          this.router.navigate(['home'], {  });
-        },
-        400);},
+        if(data.result != 0){
+          console.log('Te logueaste con el usuario '+ data.usr_data.name)
+          this.loading = false
+          localStorage.setItem('token', data.token);
+          this.animation = false
+          setTimeout(() => 
+          {
+            this.router.navigate(['home'], {  });
+          },
+          400);
+        } else {
+          this.loading = false
+          this.dialog.open(PopUpComponent, {
+            width: '350px',
+            data: {
+              dataKey: 'Error;'+data.errors[0].msg
+            }
+          });
+        }
+
+      },
       error => {
         this.loading = false
         this.dialog.open(PopUpComponent, {

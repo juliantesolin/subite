@@ -23,9 +23,9 @@ export class LoginService extends BaseService{
         this.loginResponse = new LoginResponse()
     }
 
-    loginUser(loginRequest : LoginRequest): Observable<LoginResponse> {
+    loginUser(loginRequest : LoginRequest): Observable<any> {
 
-        return this.httpClient.post<LoginResponse>(baseUrl + '/wbs/api/login', loginRequest).pipe(
+        return this.httpClient.post<any>(baseUrl + '/wbs/api/login', loginRequest).pipe(
             map(data =>{
             return data;
             }));

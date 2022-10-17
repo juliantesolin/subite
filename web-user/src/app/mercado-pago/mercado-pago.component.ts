@@ -101,6 +101,7 @@ export class MercadoPagoComponent implements OnInit {
       return
     }
 
+    this.loading = true
     this.saldosService.getReference(token, this.nuevoSaldo).subscribe(
       data => {      
 
@@ -117,11 +118,13 @@ export class MercadoPagoComponent implements OnInit {
             true)
 
     this.mercadoPagoService.pedirLinkMP(mercadoPagoRequest).subscribe(
-      data => {      
+      data => {     
         console.log(data)
         window.location.assign(data.sandbox_init_point); 
+        this.loading = false 
       },
       error => {
+        this.loading = false
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
@@ -133,6 +136,7 @@ export class MercadoPagoComponent implements OnInit {
 
       },
       error => {
+        this.loading = false
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {

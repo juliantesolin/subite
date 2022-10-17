@@ -6,7 +6,7 @@
             <img height="69" src="./assets/logo_bondipago.png"/>
           </span>
         </div>
-        <div class="nav navbar-nav navbar-right">
+        <div *ngIf="!isLogin()" class="nav navbar-nav navbar-right">
           <button class="btn btn-logout" (click)="registerClick()">
             Cerrar sesión&NonBreakingSpace;<i class="bi bi-arrow-right-square"></i>
           </button>

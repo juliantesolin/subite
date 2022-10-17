@@ -10,8 +10,9 @@
             <input matInput placeholder="Ingresa el monto a transferir" [(ngModel)]="monto" required>
         </mat-form-field>
         <div style="display:grid ;"> 
-        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="transferir()">Transferir saldo</button>
-        <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()">Volver</button>
+        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="transferir()" [disabled]="loading">Transferir saldo</button>
+        <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
         </div>
     </mat-card>
+    <mat-spinner *ngIf="loading" class="loader"></mat-spinner>
 </div>

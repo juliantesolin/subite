@@ -9,8 +9,8 @@
                 <input type="number" matInput placeholder="Saldo" [(ngModel)]="nuevoSaldo" required>
             </mat-form-field>
             <div style="display:grid ;"> 
-            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="test1()">Recargar con Mercado Pago</button>
-            <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()">Volver</button>
+            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="test1()" [disabled]="loading">Recargar con Mercado Pago</button>
+            <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
         </div>
         </div>
     </mat-card>

@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
     )
 
     this.loginService.registerUser(registerRequest).subscribe(
-      // usuario existente.. 50001 no lo agarramos
       data => {
         if(data.result != 0){
           this.router.navigate(['login'], {queryParams: { status: 'registered' }})

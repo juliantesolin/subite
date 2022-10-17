@@ -8,8 +8,8 @@
                 <input matInput placeholder="Numero de tarjeta" [(ngModel)]="numeroTarjeta" required>
             </mat-form-field>
             <div style="display:grid ;"> 
-            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="asociarTarjetaClick()">Asociar Tarjeta</button>
-            <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()">Volver</button>
+            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="asociarTarjetaClick()" [disabled]="loading">Asociar Tarjeta</button>
+            <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
         </div>
         </div>
     </mat-card>

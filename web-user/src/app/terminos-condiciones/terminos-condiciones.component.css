@@ -12,3 +12,10 @@
   font-weight: 700;
 
 }
+
+.main-div{
+  min-height:80vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

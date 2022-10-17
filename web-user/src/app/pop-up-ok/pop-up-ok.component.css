@@ -1,0 +1,10 @@
+.main-div{
+    display:grid ;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchcontainer {
+    text-align:center;
+    width: 100%;
+ }

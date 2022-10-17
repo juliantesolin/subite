@@ -11,6 +11,13 @@ export class AppComponent {
 
   constructor(private router:Router) {}
 
+  isLogin() {
+
+    let path : string = this.router.url
+
+    return path.includes('login') || path.includes('register') || path.includes('condiciones') || path.includes('acerca')
+  }
+
   registerClick(){
     localStorage.removeItem('token')
     this.router.navigate(['login'], {  });
