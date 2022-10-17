@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VerifyEmailRequest } from '../models/verify-email-request';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { LoginService } from '../services/log-in.service';
@@ -15,7 +15,7 @@ export class VerifyEmailComponent implements OnInit {
   confirmacion = false;
   initialize = false;
 
-  constructor(private route: ActivatedRoute, private loginService: LoginService) { }
+  constructor(private route: ActivatedRoute, private loginService: LoginService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -42,4 +42,7 @@ export class VerifyEmailComponent implements OnInit {
       )
   }
 
+  goToLoginClick(){
+    this.router.navigate(['login'], {})
+  }
 }

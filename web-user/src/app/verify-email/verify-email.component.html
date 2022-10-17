@@ -15,6 +15,9 @@
       <p>La confirmación ha sido exitosa.</p>
       <hr>
       <p class="mb-0">Ya puede iniciar sesión.</p>
+      <div>
+        <button mat-flat-button color="primary" (click)="goToLoginClick()" style="margin-top: 2em;">Ir a la pagina de inicio</button>
+      </div>
     </div>
   </div>
   <div *ngIf="!confirmacion && initialize">

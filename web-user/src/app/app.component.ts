@@ -15,7 +15,7 @@ export class AppComponent {
 
     let path : string = this.router.url
 
-    return path.includes('login') || path.includes('register') || path.includes('condiciones') || path.includes('acerca')
+    return path.includes('login') || path.includes('register') || path.includes('condiciones') || path.includes('acerca') || path.includes('verify')
   }
 
   registerClick(){

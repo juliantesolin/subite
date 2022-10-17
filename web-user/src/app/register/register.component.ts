@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,6 +12,18 @@ import { LoginService } from '../services/log-in.service';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({ opacity:1,transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ opacity:0,transform: 'translateX(-100%)' }),
+        animate(400)
+      ]),
+      transition('* => void', [
+        animate(400, style({ opacity:0,transform: 'translateX(100%)' }))
+      ])
+    ])
+  ],
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
@@ -26,8 +39,11 @@ export class RegisterComponent implements OnInit {
   dataFormGroup: FormGroup = this._formBuilder.group({nameCtrl: ['', Validators.required], lastnameCtrl: ['', Validators.required], dniCtrl: ['', Validators.required], mailCtrl: ['', Validators.required]});
   passFormGroup: FormGroup = this._formBuilder.group({passCtrl: ['', Validators.required], repeatPassCtrl: ['', Validators.required], });
   hide = true;
+  loading = false;
+  animation = false;
 
   ngOnInit(): void {
+    this.animation = true
   }
 
   finishClick(){
@@ -50,10 +66,17 @@ export class RegisterComponent implements OnInit {
       this.dataFormGroup.controls['dniCtrl'].value
     )
 
+    this.loading = true
     this.loginService.registerUser(registerRequest).subscribe(
       data => {
+        this.loading = false
         if(data.result != 0){
-          this.router.navigate(['login'], {queryParams: { status: 'registered' }})
+          this.animation = false
+          setTimeout(() => 
+          {
+            this.router.navigate(['login'], {queryParams: { status: 'registered' }})
+          },
+          400);
         }else{
           this.dialog.open(PopUpComponent, {
             width: '350px',
@@ -62,6 +85,7 @@ export class RegisterComponent implements OnInit {
             }})
           }},
       error => {
+        this.loading = false
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
