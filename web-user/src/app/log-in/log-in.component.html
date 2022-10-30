@@ -1,6 +1,6 @@
 
 <div class="main-div">
-<mat-card class="searchcontainer" [@flyInOut] *ngIf="animation">
+<mat-card class="searchcontainer" [@flyInOut] *ngIf="animation" (keydown.enter)='loginButtonOnClick()'>
   <div class="searchcontainer">
     <mat-card-header class="search-part">
         <mat-card-title>¡Hola! Ingresá tu usuario y contraseña</mat-card-title>

@@ -1,5 +1,5 @@
 <div class="main-div">
-    <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation">
+    <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation" (keydown.enter)='reestablecerButtonOnClick()'>
     <div>
             <mat-card-header class="search-part">
                 <mat-card-title>Denunciar robo o perdida</mat-card-title>

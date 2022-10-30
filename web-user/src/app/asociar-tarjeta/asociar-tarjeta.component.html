@@ -1,5 +1,5 @@
 <div class="main-div">
-    <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation">
+    <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation" (keydown.enter)='asociarTarjetaClick()'>
         <div class="searchcontainer">
             <mat-card-header class="search-part">
                 <mat-card-title>Ingrese el numero de su tarjeta</mat-card-title>
