@@ -25,6 +25,15 @@
     margin-bottom:1%;
  }
 
+ .searchcontainer .search-part2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top:5%;
+  margin-bottom:1%;
+}
+
  mat-form-field {
   width: 25vh;
   margin-bottom:2%;
@@ -45,7 +54,7 @@
 }
 
 @media(max-width: 768px){
-  .searchcontainer .search-part {
+  .searchcontainer .search-part2 {
     margin-left: 2em;
   }
 }
