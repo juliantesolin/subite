@@ -71,6 +71,14 @@ export class TransferirComponent implements OnInit {
             data: {
               dataKey: 'Saldo transferido;Enviaste $ '+this.monto+' a '+this.mail
             }
+          })
+          .afterClosed().subscribe(result => {
+            this.animation = false
+            setTimeout(() => 
+            {
+              this.router.navigate(['saldos'], {  });
+            },
+            400);
           });
         }else{
           this.loading = false

@@ -52,6 +52,14 @@ export class AsociarTarjetaComponent implements OnInit {
             data: {
               dataKey: 'Tarjeta Asociada;La tarjeta fue asociada correctamente a su cuenta.'
             }
+          })
+          .afterClosed().subscribe(result => {
+            this.animation = false
+            setTimeout(() => 
+            {
+              this.router.navigate(['home'], {  });
+            },
+            400);
           });
         } else {
           this.dialog.open(PopUpComponent, {
