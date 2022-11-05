@@ -50,7 +50,7 @@ export class AsociarTarjetaComponent implements OnInit {
           this.dialog.open(PopUpOkComponent, {
             width: '350px',
             data: {
-              dataKey: 'Tarjeta Asociada;La tarjeta fue asociada correctamente a su cuenta.'
+              dataKey: 'Tarjeta asociada;La tarjeta fue asociada correctamente a su cuenta.'
             }
           })
           .afterClosed().subscribe(result => {

@@ -66,7 +66,7 @@ export class RoboComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Error;La nueva contraseña debe tener mas de 8 caracteres.'
+          dataKey: 'Error;La nueva contraseña debe tener más de 6 caracteres.'
         }
       });
       return;

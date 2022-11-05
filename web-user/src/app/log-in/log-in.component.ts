@@ -38,10 +38,10 @@ export class LogInComponent implements OnInit {
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'Este campo es obligatorio';
+      return 'Este campo es obligatorio.';
     }
 
-    return this.email.hasError('email') ? 'Ingrese un Email correcto' : '';
+    return this.email.hasError('email') ? 'Ingrese un email correcto.' : '';
   }
   hide = true;
   constructor(private loginService: LoginService, private router:Router, public dialog: MatDialog, private activatedRoute: ActivatedRoute) {
@@ -55,7 +55,7 @@ export class LogInComponent implements OnInit {
           this.dialog.open(PopUpOkComponent, {
             width: '350px',
             data: {
-              dataKey: 'Cuenta reestablecida;Su cuenta fue reportada con exito.'
+              dataKey: 'Cuenta reestablecida;Su cuenta fue reportada con éxito.'
             }
           });
           break
@@ -64,7 +64,7 @@ export class LogInComponent implements OnInit {
           this.dialog.open(PopUpOkComponent, {
             width: '350px',
             data: {
-              dataKey: 'Cuenta registrada;Recuerde validar su correo electronico antes de ingresar.'
+              dataKey: 'Cuenta registrada;Recuerde validar su correo electrónico antes de ingresar.'
             }
           });
           break

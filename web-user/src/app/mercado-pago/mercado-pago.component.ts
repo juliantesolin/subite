@@ -95,7 +95,7 @@ export class MercadoPagoComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Error de credenciales;Proba desloguearte y volver a ingresar.'
+          dataKey: 'Error de credenciales;Probá cerrar sesión y volver a ingresar.'
         }
       });
       return
@@ -128,7 +128,7 @@ export class MercadoPagoComponent implements OnInit {
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error;Error al conectarse a mercado pago.'
+            dataKey: 'Error;Error al conectarse a Mercado Pago.'
           }
         });
       }
@@ -140,7 +140,7 @@ export class MercadoPagoComponent implements OnInit {
         this.dialog.open(PopUpComponent, {
           width: '350px',
           data: {
-            dataKey: 'Error;Error al obtener el numero de referencia.'
+            dataKey: 'Error;Error al obtener el número de referencia.'
           }
         });
       }

@@ -2,14 +2,14 @@
     <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation">
     <div class="searchcontainer">
             <mat-card-header class="search-part">
-                <mat-card-title>Tu Saldo es de</mat-card-title>
+                <mat-card-title>Tu saldo es de</mat-card-title>
             </mat-card-header>
             <mat-card-header class="search-part">
                 <mat-card-title class="saldo">{{account.account.currency}} {{account.account.balance}}</mat-card-title>
             </mat-card-header>
             <div style="display:grid ;">
-        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="recargaButtonOnClick()" [disabled]="loading">Recargar Saldo</button>
-        <button class="button-1" mat-flat-button color="primary" id="transferButton" (click)="transferButtonOnClick()" [disabled]="loading">Transferir Saldo</button>
+        <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="recargaButtonOnClick()" [disabled]="loading">Recargar</button>
+        <button class="button-1" mat-flat-button color="primary" id="transferButton" (click)="transferButtonOnClick()" [disabled]="loading">Transferir</button>
         <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
     </div>
     </div>

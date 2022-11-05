@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Error;Algunos de tus datos faltan o no son correctos. Completalos e intenta nuevamente'
+          dataKey: 'Error;Algunos de tus datos faltan o no son correctos. Completalos e intentá nuevamente'
         }
       });
       return;

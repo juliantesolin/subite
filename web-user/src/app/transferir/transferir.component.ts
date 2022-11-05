@@ -50,7 +50,7 @@ export class TransferirComponent implements OnInit {
       this.dialog.open(PopUpComponent, {
         width: '350px',
         data: {
-          dataKey: 'Error;Completa los datos con el formato como corresponde o valores válidos.'
+          dataKey: 'Error;Completá los datos con el formato que corresponde o con valores válidos.'
         }
       });
       return;

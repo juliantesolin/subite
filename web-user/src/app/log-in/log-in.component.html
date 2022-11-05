@@ -9,13 +9,13 @@
 
     <div class="search-part">
     <mat-form-field appearance="fill">
-      <mat-label>Ingresa tu mail</mat-label>
+      <mat-label>Ingresá tu mail</mat-label>
       <input matInput placeholder="tu@mail.com" [formControl]="email" required [(ngModel)]="usuario">
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Ingresa tu contraseña</mat-label>
+        <mat-label>Ingresá tu contraseña</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="pass">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

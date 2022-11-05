@@ -3,7 +3,7 @@
     <mat-card class="searchcontainer" *ngIf="status == ''">
         <div class="searchcontainer">
             <mat-card-header class="search-part">
-                <mat-card-title>Monto a Cargar</mat-card-title>
+                <mat-card-title>Monto a cargar</mat-card-title>
             </mat-card-header>
             <mat-form-field class="search-part2">
                 <input type="number" matInput placeholder="Saldo" [(ngModel)]="nuevoSaldo" required>
@@ -22,7 +22,7 @@
             <mat-card-header class="search-part">
                 <mat-card-title>Cargaste ARS {{nuevoSaldo}} a tu cuenta</mat-card-title>
             </mat-card-header>
-            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="volverASaldos()">Volver a Tu Saldo</button>
+            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="volverASaldos()">Volver a tu saldo</button>
         </div>
     </mat-card>
     </div>

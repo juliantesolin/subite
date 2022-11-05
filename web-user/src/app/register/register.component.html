@@ -30,7 +30,7 @@
         <ng-template matStepLabel>Contraseña</ng-template>
         <div class="searchcontainer">
         <mat-form-field class="field">
-            <input matInput placeholder="Ingresa tu contraseña" [type]="hide ? 'password' : 'text'" formControlName="passCtrl" required>
+            <input matInput placeholder="Ingresá tu contraseña" [type]="hide ? 'password' : 'text'" formControlName="passCtrl" required>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
@@ -38,14 +38,14 @@
       </div>
         <div class="searchcontainer">
         <mat-form-field class="field">
-          <input matInput placeholder="Repeti tu contraseña" [type]="hide ? 'password' : 'text'" formControlName="repeatPassCtrl" required>
+          <input matInput placeholder="Repetí tu contraseña" [type]="hide ? 'password' : 'text'" formControlName="repeatPassCtrl" required>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
     </div>
         <div>
-          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button matStepperPrevious>Volver</button>
           <button mat-button matStepperNext>Siguiente</button>
         </div>
       </form>

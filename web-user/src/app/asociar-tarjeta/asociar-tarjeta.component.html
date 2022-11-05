@@ -2,13 +2,13 @@
     <mat-card class="searchcontainer" [@flyInOut] *ngIf="animation" (keydown.enter)='asociarTarjetaClick()'>
         <div class="searchcontainer">
             <mat-card-header class="search-part">
-                <mat-card-title>Ingrese el numero de su tarjeta</mat-card-title>
+                <mat-card-title>Ingrese el número de su tarjeta</mat-card-title>
             </mat-card-header>
             <mat-form-field class="search-part">
-                <input matInput placeholder="Numero de tarjeta" [(ngModel)]="numeroTarjeta" required>
+                <input matInput placeholder="Número de tarjeta" [(ngModel)]="numeroTarjeta" required>
             </mat-form-field>
             <div style="display:grid ;"> 
-            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="asociarTarjetaClick()" [disabled]="loading">Asociar Tarjeta</button>
+            <button class="button-1" mat-flat-button color="primary" id="loginButton" (click)="asociarTarjetaClick()" [disabled]="loading">Asociar</button>
             <button class="button-1" mat-flat-button color="secondary" id="backButton" (click)="backButtonOnClick()" [disabled]="loading">Volver</button>
         </div>
         </div>
